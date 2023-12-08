@@ -6,7 +6,7 @@ import { Preferences } from '@capacitor/preferences';
 export class StorageService {
 
   formData: any
-  key: any
+  key: any = "cursoionic"
 
   constructor() { }
   async armazenarDados(info: any){
@@ -14,7 +14,6 @@ export class StorageService {
       key: this.key,
       value: JSON.stringify(info),
     });
-
 
   }
   async lerDados(){
