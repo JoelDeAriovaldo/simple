@@ -20,7 +20,7 @@
 
   <ion-item>
     <ion-label position="floating">Idade</ion-label>
-    <ion-input [(ngModel)]="idade"type="number" placeholder="Digite sua idade"></ion-input>
+    <ion-input [(ngModel)]="idade"type="number" placeholder="Digite sua idade" pattern="[0-9]*"></ion-input>
   </ion-item>
 
   <ion-item>
@@ -45,7 +45,7 @@
 
   <ion-item>
     <ion-label position="floating">Email</ion-label>
-    <ion-input [(ngModel)]="email" type="email" placeholder="Digite Seu Email"></ion-input>
+    <ion-input  [(ngModel)]="email" type="email" placeholder="Digite Seu Email"></ion-input>
   </ion-item>
 
   <ion-item>
@@ -53,8 +53,10 @@
     <ion-input [(ngModel)]="celular" type="number" placeholder="Digite Seu Numero de Celular"></ion-input>
   </ion-item>
 
+
   <ion-list lines="none">
     <ion-button [routerLink]="['/ver-dados']" (click)="salvarDados()" color="success">Salvar</ion-button>
     <ion-button color="danger">Cancelar</ion-button>
+    <ion-button color="dark" (click)="limparDados()">Limpar</ion-button>
   </ion-list>
 </ion-content>

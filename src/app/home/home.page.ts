@@ -17,9 +17,9 @@ export class HomePage {
   celular: any;
 
 
-  constructor(
-    public storage: StorageService,
-    private formBuilder: FormBuilder) {}
+  constructor(public storage: StorageService) {}
+
+
 
   salvarDados() {
     let info = {
@@ -41,5 +41,23 @@ export class HomePage {
     alert('Salvo com sucesso');
 
     console.log(this.storage.formData);
+  }
+
+  limparDados(){
+    let info = {
+      nome: this.nome = '',
+      idade: this.idade = '',
+      nPai: this.nPai = '',
+      nMae: this.nMae = '',
+      endereco: this.endereco = '',
+      email: this.email = '',
+      nuit: this.nuit = '',
+      celular: this.celular = '',
+    };
+
+
+    alert('lIMPANDO DADOS')
+
+
   }
 }
