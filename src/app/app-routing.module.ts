@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'ver-dados',
+    loadChildren: () => import('./ver-dados/ver-dados.module').then( m => m.VerDadosPageModule)
+  },
 ];
 
 @NgModule({

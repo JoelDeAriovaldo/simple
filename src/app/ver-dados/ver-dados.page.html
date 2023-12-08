@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>ver-dados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">ver-dados</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <h1>Nome: {{storage.formData.nome}}</h1>
+  <h1>Idade: {{storage.formData.idade}}</h1>
+  <h1>Endereco: {{storage.formData.endereco}}</h1>
+  <h1>Email: {{storage.formData.email}}</h1>
+  <h1>Celular: {{storage.formData.celular}}</h1>
+</ion-content>

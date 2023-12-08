@@ -39,7 +39,7 @@
   </ion-item>
 
   <ion-list lines="none">
-    <ion-button (click)="salvarDados()" color="success">Salvar</ion-button>
+    <ion-button [routerLink]="['/ver-dados']" (click)="salvarDados()" color="success">Salvar</ion-button>
     <ion-button color="danger">Cancelar</ion-button>
   </ion-list>
 </ion-content>
