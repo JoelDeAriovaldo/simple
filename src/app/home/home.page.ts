@@ -6,7 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  nome: any;
+  idade: any;
+  endereco: any;
+  email: any;
+  celular: any;
 
   constructor() {}
 
+  salvarDados(){
+    alert('Nome: '+this.nome)
+  }
 }
