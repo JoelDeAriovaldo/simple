@@ -14,38 +14,13 @@
   </ion-header>
 
   <ion-item>
+      <ion-label floating>Foto</ion-label>
+      <ion-input type="file" [id]="pic" (change)="selImg($event)"></ion-input>
+    </ion-item>
+    
+  <ion-item>
     <ion-label position="floating">Nome</ion-label>
     <ion-input [(ngModel)]="nome" type="text" placeholder="Digite Seu Nome" required></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="floating">Idade</ion-label>
-    <ion-input [(ngModel)]="idade"type="number" placeholder="Digite sua idade"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="floating">Nome do Pai</ion-label>
-    <ion-input [(ngModel)]="nPai" type="text" placeholder="Digite o nome do seu pai"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="floating">Nome da Mae</ion-label>
-    <ion-input [(ngModel)]="nMae" type="text" placeholder="Digite o nome da sua mae"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="floating">Endereco</ion-label>
-    <ion-input [(ngModel)]="endereco" type="text" placeholder="Digite Seu Endereco"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="floating">NUIT</ion-label>
-    <ion-input [(ngModel)]=" nuit" type="number" placeholder="Digite o seu NUIT"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="floating">Email</ion-label>
-    <ion-input  [(ngModel)]="email" type="email" placeholder="Digite Seu Email"></ion-input>
   </ion-item>
 
   <ion-item>
@@ -54,8 +29,10 @@
   </ion-item>
 
 
+
+
   <ion-list lines="none">
-    <ion-button [routerLink]="['/ver-dados']" (click)="salvarDados()" color="success">Salvar</ion-button>
+    <ion-button [routerLink]="linkAtivo ? '/ver-dados' : null" (click)="salvarDados()" color="success">Salvar</ion-button>
     <ion-button color="danger">Cancelar</ion-button>
     <ion-button color="dark" (click)="limparDados()">Limpar</ion-button>
   </ion-list>

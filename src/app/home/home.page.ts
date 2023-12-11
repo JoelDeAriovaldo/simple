@@ -8,60 +8,47 @@ import { FormBuilder } from '@angular/forms';
 })
 export class HomePage {
   nome: any;
-  idade: any;
-  nPai: any;
-  nMae: any;
-  endereco: any;
-  nuit: any;
-  email: any;
   celular: any;
-
+  pic: any;
+  linkAtivo = false;
 
   constructor(public storage: StorageService) {}
 
-
-
   salvarDados() {
-    if(!this.nome || !this.celular){
+    let info;
+
+    if (!this.nome || !this.celular) {
       alert('Nome e celurar sao requeridos');
       return;
     }
-    let info = {
+    info = {
       nome: this.nome,
-      idade: this.idade,
-      nPai: this.nPai,
-      nMae: this.nMae,
-      endereco: this.endereco,
-      email: this.email,
-      nuit: this.nuit,
+
       celular: this.celular,
+      pic: this.pic,
     };
 
     this.storage.armazenarDados(info);
 
     this.storage.formData = info;
-    // console.log('info ', info, this.storage.formData);
-    return;
-    alert('Salvo com sucesso');
-
-    console.log(this.storage.formData);
+    this.linkAtivo = true;
   }
 
-  limparDados(){
+  selImg(event: any) {
+    let fileInput = event.target;
+
+    if (fileInput.files && fileInput.files.length > 0) {
+      let imagem = fileInput.files[0];
+      this.pic = URL.createObjectURL(imagem);
+    }
+  }
+
+  limparDados() {
     let info = {
-      nome: this.nome = '',
-      idade: this.idade = '',
-      nPai: this.nPai = '',
-      nMae: this.nMae = '',
-      endereco: this.endereco = '',
-      email: this.email = '',
-      nuit: this.nuit = '',
-      celular: this.celular = '',
+      nome: (this.nome = ''),
+      celular: (this.celular = ''),
     };
 
-
-    alert('lIMPANDO DADOS')
-
-
+    alert('lIMPANDO DADOS');
   }
 }
