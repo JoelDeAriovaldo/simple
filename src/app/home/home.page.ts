@@ -22,6 +22,10 @@ export class HomePage {
 
 
   salvarDados() {
+    if(!this.nome || !this.celular){
+      alert('Nome e celurar sao requeridos');
+      return;
+    }
     let info = {
       nome: this.nome,
       idade: this.idade,
