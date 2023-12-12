@@ -4,7 +4,7 @@ import { Preferences } from '@capacitor/preferences';
   providedIn: 'root',
 })
 export class StorageService {
-  formData: any;
+  FormGroup: any;
   key: any = 'cursoionic';
 
   constructor() {}
@@ -13,17 +13,5 @@ export class StorageService {
       key: this.key,
       value: JSON.stringify(info),
     });
-  }
-  async lerDados() {
-    let info = await (await Preferences.get({ key: this.key })).value;
-    this.formData = info;
-    console.log('Dados', info);
-  }
-
-  async limparDat() {
-      let result = await Preferences.get({ key: this.key });
-      let info = result.value;
-      this.formData = info;
-      console.log('Dados', info);
   }
 }

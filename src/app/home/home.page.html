@@ -11,44 +11,25 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-item>
-    <ion-label floating>Foto</ion-label>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <ion-input type="file" formControlName="pic"></ion-input>
     <ion-input
-      type="file"
-      id="pic2"
-      [id]="pic"
-      (change)="selImg($event)"
-    ></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="floating">Nome</ion-label>
-    <ion-input
-      [(ngModel)]="nome"
       type="text"
-      placeholder="Digite Seu Nome"
-      required
+      formControlName="nome"
+      placeholder="nome"
     ></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="floating">Celular</ion-label>
     <ion-input
-      [(ngModel)]="celular"
       type="number"
-      placeholder="Digite Seu Numero de Celular"
-      required=""
+      formControlName="celular"
+      placeholder="Digite seu celular"
     ></ion-input>
-  </ion-item>
-
-  <ion-list lines="none">
     <ion-button
       [routerLink]="linkAtivo ? '/ver-dados' : null"
-      (click)="salvarDados()"
       color="success"
+      type="submit"
       >Salvar</ion-button
     >
     <ion-button color="danger">Cancelar</ion-button>
-    <ion-button color="dark" (click)="limparDados()">Limpar</ion-button>
-  </ion-list>
+    <ion-button color="dark">Limpar</ion-button>
+  </form>
 </ion-content>

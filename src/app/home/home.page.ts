@@ -1,36 +1,43 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { StorageService } from '../services/storage.service';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
+  formGroup!: FormGroup;
   nome: any;
   celular: any;
   pic: any;
   linkAtivo = false;
 
-  constructor(public storage: StorageService) {}
+  constructor(private fb: FormBuilder, private storage: StorageService) {}
 
-  salvarDados() {
+  ngOnInit() {
+    this.formGroup = this.fb.group({
+      pic: ['', Validators.required],
+      nome: ['', Validators.required],
+      celular: ['', Validators.required],
+    });
+  }
+
+  onSubmit() {
     let info;
+    let nome = this.formGroup.get('nome')?.value;
+    let celular = this.formGroup.get('celular')?.value;
+    let pic = this.formGroup.get('pic')?.value;
 
-    if (!this.nome || !this.celular) {
-      alert('Nome e celurar sao requeridos');
-      return;
-    }
     info = {
-      nome: this.nome,
-
-      celular: this.celular,
-      pic: this.pic,
+      nome,
+      celular,
+      pic,
     };
 
     this.storage.armazenarDados(info);
 
-    this.storage.formData = info;
+    this.storage.FormGroup = info;
     this.linkAtivo = true;
   }
 
@@ -41,23 +48,5 @@ export class HomePage {
       let imagem = fileInput.files[0];
       this.pic = URL.createObjectURL(imagem);
     }
-  }
-  limparDados() {
-    let info = {
-      nome: '',
-      celular: '',
-      pic: '',
-    };
-
-    this.nome = '';
-    this.celular = '';
-    this.pic = document.getElementById(this.pic);
-    this.pic.value = '';
-    // let i = <HTMLInputElement>this.pic;
-    // i.value = '';
-    // return this.pic.parentNode.removeChild(this.pic);
-
-    this.linkAtivo = false;
-    alert('lIMPANDO DADOS');
   }
 }
