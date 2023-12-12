@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      HOME
-    </ion-title>
+    <ion-title> HOME </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,25 +12,42 @@
   </ion-header>
 
   <ion-item>
-      <ion-label floating>Foto</ion-label>
-      <ion-input type="file" [id]="pic" (change)="selImg($event)"></ion-input>
-    </ion-item>
-    
+    <ion-label floating>Foto</ion-label>
+    <ion-input
+      type="file"
+      id="pic2"
+      [id]="pic"
+      (change)="selImg($event)"
+    ></ion-input>
+  </ion-item>
+
   <ion-item>
     <ion-label position="floating">Nome</ion-label>
-    <ion-input [(ngModel)]="nome" type="text" placeholder="Digite Seu Nome" required></ion-input>
+    <ion-input
+      [(ngModel)]="nome"
+      type="text"
+      placeholder="Digite Seu Nome"
+      required
+    ></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">Celular</ion-label>
-    <ion-input [(ngModel)]="celular" type="number" placeholder="Digite Seu Numero de Celular" required=""></ion-input>
+    <ion-input
+      [(ngModel)]="celular"
+      type="number"
+      placeholder="Digite Seu Numero de Celular"
+      required=""
+    ></ion-input>
   </ion-item>
 
-
-
-
   <ion-list lines="none">
-    <ion-button [routerLink]="linkAtivo ? '/ver-dados' : null" (click)="salvarDados()" color="success">Salvar</ion-button>
+    <ion-button
+      [routerLink]="linkAtivo ? '/ver-dados' : null"
+      (click)="salvarDados()"
+      color="success"
+      >Salvar</ion-button
+    >
     <ion-button color="danger">Cancelar</ion-button>
     <ion-button color="dark" (click)="limparDados()">Limpar</ion-button>
   </ion-list>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { StorageService } from '../services/storage.service';
 import { FormBuilder } from '@angular/forms';
 @Component({
@@ -42,13 +42,22 @@ export class HomePage {
       this.pic = URL.createObjectURL(imagem);
     }
   }
-
   limparDados() {
     let info = {
-      nome: (this.nome = ''),
-      celular: (this.celular = ''),
+      nome: '',
+      celular: '',
+      pic: '',
     };
 
+    this.nome = '';
+    this.celular = '';
+    this.pic = document.getElementById(this.pic);
+    this.pic.value = '';
+    // let i = <HTMLInputElement>this.pic;
+    // i.value = '';
+    // return this.pic.parentNode.removeChild(this.pic);
+
+    this.linkAtivo = false;
     alert('lIMPANDO DADOS');
   }
 }
